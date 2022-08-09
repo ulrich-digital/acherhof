@@ -1,0 +1,802 @@
+/*
+Theme Name: ulrich.digital Blank Theme
+Author: ulrich.digital
+Author URI: https://ulrich.digital
+Version: 2019.1
+License: GNU General Public License
+License URI: https://www.gnu.org/licenses/gpl.html
+Description: Das Worpress Theme ulrich_digital_blank ist ein Entwicklungs-Theme von ulrich.digital.
+Text Domain: ulrich_digital_blank
+* Domain Path: /languages
+*/
+
+/* CSS  Reset  */
+article,aside,details,figcaption,figure,footer,header,hgroup,hr,menu,nav,section{display:block}a,hr{padding:0}abbr,address,article,aside,audio,b,blockquote,body,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,em,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,p,pre,q,samp,section,small,span,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,ul,var,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:0 0}ins,mark{background-color:#ff9;color:#000}body{line-height:1}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}a{margin:0;font-size:100%;vertical-align:baseline;background:0 0}ins{text-decoration:none}mark{font-style:italic;font-weight:700}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{height:1px;border:0;border-top:1px solid #ccc;margin:1em 0}input,select{vertical-align:middle}
+
+/* =============================================================== *\
+ 	 Fonts
+\* =============================================================== */
+/*
+@font-face {
+    font-family: 'Marat Sans';
+    src: url('webfonts/MaratSans-Thin.eot');
+    src: url('webfonts/MaratSans-Thin.eot?#iefix') format('embedded-opentype'),
+        url('webfonts/MaratSans-Thin.woff2') format('woff2'),
+        url('webfonts/MaratSans-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+    }
+*/
+
+/* =============================================================== *\
+ 	 General
+\* =============================================================== */
+
+:root {
+	--color-text: #000;
+	--color-link: #CD4F39;
+	--color-link-hover: #FFCC01;
+	--color-background: #F6F6F6;
+	--color-blue: #0075ff;
+	--color-grey: #9b9b9b;
+}
+
+/* https://fonts.google.com/specimen/Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	background: var(--color-background);
+	width: calc(100% - 20px);
+	margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+}
+
+a:hover {
+	color: var(--color-link-hover);
+}
+
+div {
+	line-height: 1.2rem;
+}
+
+h1 {
+	font-size: 3rem;
+	margin: 3rem 0;
+    line-height: 1em;
+}
+
+h1 a {
+	color: var(--color-text);
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 1rem;
+	margin-bottom: .5rem;
+}
+
+.user.name h2 {
+	font-weight: 500;
+	font-size: 1.5rem;
+	margin-bottom: .5rem;
+}
+
+/* button */
+.user-profil.button,
+.status .button {
+	color: var(--color-link);
+	cursor: pointer;
+}
+
+.user-profil.button:hover,
+.status .button:hover {
+	color: var(--color-link-hover);
+}
+
+.user-profil.button.active i,
+.status .button.active i {
+	transform: rotate(180deg);
+}
+
+.user-profil.button i,
+.status .button i {
+	transform: rotate(0deg);
+}
+
+.user-profil.meta,
+.status .meta {
+	display: none;
+}
+
+#site-title {
+	padding-bottom: 2rem;
+}
+
+#site-title a img {
+	max-width: 100px;
+	height: auto;
+}
+
+img {
+    display: block;
+    height: auto;
+}
+
+.user {
+	display: flex;
+	gap: 1rem;
+}
+
+.user-image img {
+	width: 70px;
+	height: auto;
+	border-radius: 1rem;
+}
+
+.subtitle {
+	font-weight: bold;
+}
+
+.acf-hidden,
+.hidden {
+    visibility: hidden;
+}
+
+.updated {
+	color: black;
+	background-color: var(--color-link-hover);
+	margin: 5px 0 15px;
+    padding: 2rem;
+	font-weight: 400;
+	border-left: #eab700 solid 3px;
+	display: block;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 999999;
+}
+
+/* =============================================================== *\
+ 	 Main-Elements
+\* =============================================================== */
+
+#header {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#header .nav_user {
+	display: flex;
+	gap: 1rem;
+}
+
+#header #current_user {
+    display: flex;
+    gap: 1rem;
+}
+
+.standortbestimmung {
+	margin-bottom: 1rem;
+	border: 1px dotted var(--color-link);
+	border-radius: 5px;
+	padding: .5rem;
+}
+
+.standortbestimmungen {
+	padding: .5rem;
+	width: 100%;
+}
+
+.page-template-page-template-mitarbeiter .standortbestimmungen {
+    width: 100%;
+    padding: .5rem;
+    box-sizing: border-box;
+}
+
+.mitarbeiter {
+	display: flex;
+	justify-content: flex-start;
+	gap: 2rem;
+	padding: .5rem;
+	box-sizing: border-box;
+}
+
+.mitarbeiter .user-text i {
+	min-width: 1rem;
+}
+
+.uebersicht {
+	background-color: #fff;
+	border: 1px solid lightgray;
+}
+
+.mitarbeiter:nth-child(odd) {
+    background-color: aliceblue;
+}
+
+.mitarbeiter:nth-child(even) {
+	border-top: 1px solid lightgray;
+}
+
+.mitarbeiter .user {
+	width: 50%;
+}
+
+.vorgesetzter {
+	margin-bottom: 2rem;
+}
+
+.post-data {
+	margin-top: .5rem;
+	font-size: .7rem;
+}
+
+#search {
+	display: none;
+}
+
+/* acf */
+.acf-field {
+	border: none !important;
+}
+
+.passwd-actions {
+	font-size: .7rem;
+	margin-top: .2rem;
+}
+
+.acf-form-submit {
+	margin: 0;
+    padding: 15px 12px;
+}
+
+.closed,
+.closed a {
+	/* pointer-events: none; */
+	color: lightgrey !important;
+}
+
+/* form customations */
+.ma-name .acf-input .acf-fields,
+.fp-name .acf-input .acf-fields {
+	background: transparent;
+}
+
+.single-standortbestimmung .acf-fields.-left > .acf-field:before {
+	display: none;
+}
+
+/* standortevaluation */
+.page-id-194 .acf-input .acf-fields.-border {
+	background: transparent;
+	border: none;
+}
+
+.page-id-194 .acf-input .acf-field-checkbox {
+	background: #fff;
+	border: #ccd0d4 solid 1px !important;
+	margin: 1rem 0;
+}
+
+.page-id-194 .acf-fields.-left > .acf-field > .acf-input {
+	width: 100%;
+}
+
+.abschliessen {
+	background: #fff;
+	border: #ccd0d4 solid 1px !important;
+	padding: 15px 12px;
+	margin: 15px 12px !important;
+	display: block;
+}
+
+/* Checkbox accent color */
+.abschliessen input:checked {
+    accent-color: #2a9bd9;
+}
+
+
+/* hide handles left and rightside */
+.single-standortbestimmung .acf-row-handle.order.ui-sortable-handle,
+.single-standortbestimmung	.acf-row-handle.remove {
+	display: none !important;
+}
+
+.single-standortbestimmung .acf-fields.-left {
+	border-right: 1px solid #ccd0d4!important;
+}
+
+.single-standortbestimmung .acfe-repeater-stylised-button {
+	display: none;
+}
+
+.single-standortbestimmung .acf-range-wrap input[type=range] {
+	width: calc(100% - 4.5em);
+}
+
+.repeater-bewertung td.acf-fields.-left {
+	background: transparent;
+	border: none !important;
+}
+
+.repeater-bewertung td.acf-fields.-left .acf-label {
+	padding: 0 0 !important;
+}
+
+.repeater-bewertung .beschreibung textarea {
+	background: transparent;
+	border: none;
+	resize: none;
+}
+
+/* acf labels */
+.acf-field .acf-label label {
+    font-weight: 400 !important;
+    color: var(--color-grey);
+}
+
+/* acf first label in repeater / group */
+.acf-field-group > .acf-label label,
+.acf-field-repeater > .acf-label label {
+	font-weight: 600 !important;
+	color: var(--color-text);
+	font-size: 1.5em;
+}
+
+/* acf submit button */
+.acf-form-submit input {
+	background-color: var(--color-link-hover);
+	padding: .5rem 1rem;
+	border-radius: .2rem;
+	border: none;
+}
+
+.acf-form-submit input:hover {
+	background-color: var(--color-link);
+	color: var(--color-background);
+	cursor: pointer;
+}
+
+/* hide Senden Button auf der Seite "Auswahl Fokusthemen -> id = 194 */
+.page-id-194 .acf-field-62a1db0e96021 {
+    display: none;
+}
+
+#mitteilung {
+	display: inline-block;
+}
+
+/* --------------------------------- page fokusthemen ------------------------------------ */
+
+/* disable select boxes "Standortbestmmung von" */
+.page-template-page-template-fokusthemen .acf-field[data-key="field_613b002a678e9"]  {
+	pointer-events: none;
+}
+
+/* grey out combobox, resp. set combobox background transparent */
+.page-template-page-template-fokusthemen .acf-field[data-key="field_613b002a678e9"] span[role="combobox"] {
+	background: transparent !important;
+}
+
+/* --------------------------------- single standortbestimmung ------------------------------------ */
+
+.single-standortbestimmung .acf-field[data-key="field_62a1db0e96021"],
+.single-standortbestimmung .acf-field[data-key="field_62d65e034a129"],
+.single-standortbestimmung .acf-field[data-key="field_62d69cf341bf2"],
+.single-standortbestimmung .acf-field[data-key="field_62dabb4eec863"] {
+	border: 1px solid lightgray !important;
+	margin: 15px 12px;
+	background: #fff;
+}
+
+/* Button Submit Style */
+.single-standortbestimmung .acf-field[data-key="field_62a1db0e96021"] .button.button-secondary {
+    background-color: var(--color-link-hover);
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    border: none;
+}
+
+.single-standortbestimmung .acf-field[data-key="field_62a1db0e96021"] .button.button-secondary:hover,
+.single-standortbestimmung .back_button:hover,
+.page-template-page-template-fokusthemen .back_button:hover,
+.page-template-create-new-user-template .back_button:hover,
+.page-template-edit-user-template .back_button:hover {
+	background-color: var(--color-link);
+	color: var(--color-background);
+	cursor: pointer;
+}
+
+/* submit button */
+.single-standortbestimmung .acf-form-submit,
+.page-template-page-template-fokusthemen .acf-form-submit,
+.page-template-create-new-user-template .acf-form-submit,
+.page-template-edit-user-template .acf-form-submit {
+	display: inline-block;
+}
+
+/* Zurück Button */
+.single-standortbestimmung .back_button,
+.page-template-page-template-fokusthemen .back_button,
+.page-template-create-new-user-template .back_button,
+.page-template-edit-user-template .back_button {
+	background-color: var(--color-link-hover);
+	padding: 0.5rem 1rem;
+	border-radius: 0.2rem;
+	border: none;
+	display: inline-block;
+	cursor: pointer;
+	color: rgb(0,0,0);
+	font-weight: 400;
+	line-height: normal;
+	margin: 15px 12px;
+	font-size: .81rem;
+}
+
+/* Style success message nach AJAX-"Senden"-Button */
+.single-standortbestimmung .mail-response {
+	position: relative;
+    display: block;
+    color: #fff;
+    margin: 15px 0px;
+    padding: 3px 12px;
+    background: #2a9bd9;
+    border-left: #1f7db1 solid 3px;
+}
+
+/* disable select boxes "Standortbestmmung von" und "Standortbestimmung für" */
+.single-standortbestimmung .acf-field[data-key="field_613b002a678e9"],
+.single-standortbestimmung .acf-field[data-key="field_61498788174c3"] {
+	pointer-events: none;
+}
+
+/* grey out combobox, resp. set combobox background transparent */
+.single-standortbestimmung .acf-field[data-key="field_613b002a678e9"] span[role="combobox"],
+.single-standortbestimmung .acf-field[data-key="field_61498788174c3"] span[role="combobox"] {
+	background: transparent !important;
+}
+
+/* error message */
+.single-standortbestimmung .error {
+	border: 1px solid red;
+	border-radius: 2px;
+}
+
+.single-standortbestimmung .error_message {
+	background: #e50000;
+	border-left:#cc0000 solid 3px;
+	color: white;
+	font-weight: 400;
+	padding: 4px 6px;
+	margin: 15px 12px;
+}
+
+.single-standortbestimmung .punkte-legend {
+	color: var(--wp--preset--color--vivid-cyan-blue);
+}
+
+.single-standortbestimmung .punkte-nolegend {
+	color: red;
+}
+
+.single-standortbestimmung .punktetabelle {
+	width: 100%;
+	height: auto;
+}
+
+.single-standortbestimmung .punktetabelle th {
+	text-align: left;
+	border-bottom: 1px solid black;
+}
+
+.single-standortbestimmung .punktetabelle tr td:not(:first-of-type),
+.single-standortbestimmung .punktetabelle tr th:not(:first-of-type) {
+	padding-left: 1rem;
+}
+
+.single-standortbestimmung .punktetabelle td {
+	border-bottom: 1px solid lightgray;
+}
+
+.single-standortbestimmung .punktetabelle .punkte {
+	width: 20%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.single-standortbestimmung .punktetabelle .bar {
+	height: 20px;
+	text-align: center;
+	font-size: .7rem;
+}
+
+.single-standortbestimmung .punktetabelle .kompetenz {
+	width: 30%;
+}
+
+.single-standortbestimmung .punktetabelle .sub {
+	background-color: rgba(54, 162, 235, 0.2);
+}
+
+.single-standortbestimmung .punktetabelle .sup {
+	background-color: rgba(255, 99, 132, 0.2);
+}
+
+.single-standortbestimmung .meta-header {
+	padding-bottom: 10rem;
+}
+
+.single-standortbestimmung .meta-header .row {
+	display: flex;
+}
+
+.single-standortbestimmung .meta-header .row .column:first-of-type {
+	width: 6rem;
+}
+
+.single-standortbestimmung .beschreibung textarea {
+	border: none;
+    font: inherit;
+    font-weight: 500;
+    letter-spacing: .4px;
+    padding: 0;
+    margin: 0;
+	resize: none;
+}
+
+/* Legende Punkte */
+#acf-field_615711e85b9dc {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+}
+
+/* progress donut bar */
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+.donut-wrapper {
+	font-size: 16px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 999999;
+	display: none;
+}
+
+#percent {
+	display: block;
+	width: 160px;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	margin: 50px auto 20px;
+	padding: 10px;
+	color: #1ABC9C;
+	font-family: "Lato", Tahoma, Geneva, sans-serif;
+	font-size: 35px;
+	text-align: center;
+}
+
+#donut {
+	display: block;
+	margin: 0px auto;
+	color: #1ABC9C;
+	font-size: 20px;
+	text-align: center;
+}
+
+.donut-size {
+	font-size: 12em;
+}
+
+.pie-wrapper {
+	position: relative;
+	width: 1em;
+	height: 1em;
+	margin: 0px auto;
+}
+
+.pie-wrapper .pie {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	clip: rect(0, 1em, 1em, 0.5em);
+}
+
+.pie-wrapper .half-circle {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	border: 0.1em solid rgba(255, 204, 1, 0.6);
+	border-radius: 50%;
+	clip: rect(0em, 0.5em, 1em, 0em);
+}
+
+.pie-wrapper .right-side {
+	transform: rotate(0deg);
+}
+
+.pie-wrapper .label {
+	position: absolute;
+	top: 0.52em;
+	right: 0.4em;
+	bottom: 0.4em;
+	left: 0.4em;
+	display: block;
+	background: none;
+	border-radius: 50%;
+	color: #7F8C8D;
+	font-size: 0.25em;
+	line-height: 2.6em;
+	text-align: center;
+	cursor: default;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pie-wrapper .smaller {
+	padding-bottom: 20px;
+	color: #BDC3C7;
+	font-size: 0.45em;
+	vertical-align: super;
+}
+
+.pie-wrapper .shadow {
+	width: 100%;
+	height: 100%;
+	border: 0.1em solid rgba(127, 140, 141, 0.2);
+	border-radius: 50%;
+}
+
+/* error */
+.error {
+	border: 1px solid red;
+	border-radius: 2px;
+}
+
+.acf-notice.-error.acf-error-message.-dismiss {
+	background: #2a9bd9;
+    border-left: #1f7db1 solid 3px;
+}
+
+.anmerk_name {
+	font-weight: 500;
+}
+
+/* loginform */
+form[name="loginform"] input:not([name="rememberme"]) {
+	margin-top: .4rem;
+	margin-bottom: .8rem;
+}
+
+label[for="user_login"],
+label[for="user_pass"] {
+	display: block;
+}
+
+input[name="rememberme"] {
+	margin-left: 0;
+	vertical-align: text-bottom;
+}
+
+.login-submit {
+	text-align: center;
+	margin-top: 1.5em;
+}
+
+/* print standortbestimmung */
+@media print {
+	body.single-standortbestimmung {
+		width: 210mm;
+		min-height: 297mm;
+		margin: 20mm auto;
+		background: white;
+		color: black;
+	}
+
+	.single-standortbestimmung h1 {
+		font-size: 2rem;
+		margin: 1rem 0;
+	}
+
+	.single-standortbestimmung .radar-chart,
+	.single-standortbestimmung #myChart {
+		width: 100%;
+	}
+
+	.single-standortbestimmung .meta-header {
+		padding-bottom: 1rem;
+	}
+
+	.single-standortbestimmung .anmerkung .sup,
+	.single-standortbestimmung .anmerkung .sub {
+		background-color: transparent !important;
+	}
+
+	.single-standortbestimmung .bar.sup,
+	.single-standortbestimmung .bar.sub {
+		border: 1px solid black !important;
+		margin: .2rem 0 !important;
+	}
+
+	.single-standortbestimmung #header,
+	.single-standortbestimmung #only_view {
+		display: none !important;
+	}
+
+	.single-standortbestimmung .punktetabelle {
+		page-break-before: auto;
+	}
+}
+
+/* =============================================================== *\
+ 	 Menus
+\* =============================================================== */
+
+/* =============================================================== *\
+ 	 Buttons + Isotope Filters
+\* =============================================================== */
+
+/* =============================================================== *\
+ 	 Masonry
+\* =============================================================== */
+
+/* =============================================================== *\
+ 	 Social Media
+\* =============================================================== */
+
+/* =============================================================== *\
+ 	 Custom Blocks
+\* =============================================================== */
+
+/* =============================================================== *\
+ 	 Page default
+\* =============================================================== */
+
+/* =============================================================== *\
+ 	 Page Home
+\* =============================================================== */
+
+/* =============================================================== *\
+ 	 Archive default
+\* =============================================================== */
+
+/* =============================================================== *\
+ 	 Single default
+\* =============================================================== */
+
+/* =============================================================== *\
+ 	 Imprint + Privacy Policy
+\* =============================================================== */
+
+/* =============================================================== *\
+ 	 Post-Edit-Link
+\* =============================================================== */
+.post-edit-link{
+    }
+
+/* =============================================================== *\
+	Media-Queries
+\* =============================================================== */
+@media screen and (max-width: 1000px){
+}
